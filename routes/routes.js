@@ -44,7 +44,6 @@ app.post("/add", function(req, res) {
         })
     }
 });
-})
 app.delete("/delete_by_id",function(req,res){
   if(!req.query.id){
    return res.send({"status": "error", "message": "missing id"});
@@ -55,7 +54,18 @@ app.delete("/delete_by_id",function(req,res){
     return res.send({"status":"success"});
   })
 });
-
+app.put("/update_freq",function(req,res){
+  if(!req.body.id || !req.body.freq) {
+      return res.send({"status": "error", "message": "missing a parameter"});
+  }
+    connection.query('update bye set freq=? where id=?',[req.body.freq,req.body.id],function(err){
+      if(err)
+        throw err
+      return res.send({"status":"success"});
+    })
+  //  return res.send({"status": "error", "message": "missing id"});
+});
+})
 }
 
 module.exports = appRouter;
