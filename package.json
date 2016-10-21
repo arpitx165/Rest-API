@@ -1,0 +1,11 @@
+{
+  "name": "rest-api",
+  "version": "1.0.0",
+  "description": "\"Sample Api for testing\"",
+  "author": "Arpit",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  }
+}
